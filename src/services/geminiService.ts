@@ -3,7 +3,8 @@ import { GoogleGenAI } from "@google/genai";
 import { PERSONAL_INFO, SKILLS, PROJECTS, ABOUT_TEXT } from '../constants';
 
 // Initializing the GenAI client using process.env.API_KEY
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+const apiKey = process.env.API_KEY || '';
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 const SYSTEM_INSTRUCTION = `
 You are the high-end digital liaison for ${PERSONAL_INFO.name}, an award-winning ${PERSONAL_INFO.role}.
@@ -27,6 +28,11 @@ When greeting, acknowledge the user as a "collaborator" or "visitor."
 
 export const generateAIResponse = async (userMessage: string): Promise<string> => {
   try {
+    if (!ai) {
+      console.warn("Gemini API key not configured");
+      return "The AI system is currently unavailable. Please check back later or contact me directly.";
+    }
+    
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: [{ role: 'user', parts: [{ text: userMessage }] }],
