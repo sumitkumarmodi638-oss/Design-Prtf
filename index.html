@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sumit Modi | Principal Product Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Manrope', 'sans-serif'],
+              mono: ['Space Mono', 'monospace'],
+            },
+            colors: {
+              background: '#030303',
+              surface: '#0A0A0A',
+              primary: '#FFFFFF',
+              secondary: '#27272A',
+              text: '#A1A1AA',
+              accent: '#6366f1',
+            },
+            transitionTimingFunction: {
+              'premium': 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+              'bounce-subtle': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+            },
+            animation: {
+              'blob': 'blob 20s infinite',
+              'scan': 'scan 4s linear infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              scan: {
+                '0%': { backgroundPosition: '0% 0%' },
+                '100%': { backgroundPosition: '0% 100%' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #030303;
+        color: #A1A1AA;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        cursor: none; /* Hide default cursor for custom cursor implementation */
+      }
+      
+      /* Noise Grain Texture */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://grainy-gradients.vercel.app/noise.svg');
+        opacity: 0.04;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #030303;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #27272A;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #3F3F46;
+      }
+      
+      .bg-grid-pattern {
+        background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+
+      .mask-text {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        transition: clip-path 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .mask-text-hidden {
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+      }
+
+      .glass-panel {
+        background: rgba(10, 10, 10, 0.7);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      @media (hover: none) {
+        body { cursor: auto; }
+        #custom-cursor { display: none; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
