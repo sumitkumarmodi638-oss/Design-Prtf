@@ -48,11 +48,10 @@ export const About: React.FC = () => {
               <div className="h-[500px] md:h-full min-h-[500px] bg-gray-900 rounded-[2rem] overflow-hidden relative group border border-white/5">
                 {/* 
                    IMPORTANT: 
-                   I have updated the src to 'sumit-profile.jpg'.
-                   Please rename your uploaded image to 'sumit-profile.jpg' and ensure it is in the public/assets folder.
+                   The profile image is stored in public/assets/sumit-profile.jpg
                 */}
                 <img 
-                  src="/sumit-profile.jpg" 
+                  src="/assets/sumit-profile.jpg" 
                   alt={PERSONAL_INFO.name} 
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                 />
